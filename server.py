@@ -1,4 +1,4 @@
-from flask import Flask, request, send_from_directory
+from flask import Flask, request, make_response, send_from_directory
 import os
 import subprocess
 import threading
@@ -29,6 +29,14 @@ def set_expiry():
     with expiry_lock:
         expiry = request.get_json()['expiry']
     return 'Expiry set'
+
+@app.route('/get-expiry', methods=['GET'])
+def get_expiry():
+    global expiry
+    with expiry_lock:
+        response = make_response(f"{expiry}", 200)
+        response.mimetype = "text/plain"
+        return response
 
 def enforce_expiry():
     while True:
