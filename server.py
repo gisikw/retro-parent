@@ -12,8 +12,14 @@ GAMING = "Gaming"
 
 app = Flask(__name__, static_folder='public')
 expiry_lock = threading.Lock()
-expiry = None
 current_process_type = None
+
+if os.path.exists("expiry.txt"):
+    f = open("expiry.txt", "r")
+    expiry = float(f.read())
+    f.close()
+else:
+    expiry = None
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
@@ -28,6 +34,9 @@ def set_expiry():
     global expiry
     with expiry_lock:
         expiry = request.get_json()['expiry']
+        f = open("expiry.txt", "w")
+        f.write(f"{expiry}")
+        f.close()
     return 'Expiry set'
 
 @app.route('/get-expiry', methods=['GET'])
