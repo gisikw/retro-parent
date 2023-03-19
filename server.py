@@ -6,7 +6,7 @@ import time
 
 ENFORCER_POLLING_TIME = 2
 GAMING_CMD = ['/opt/retropie/supplementary/emulationstation/emulationstation.sh']
-WALLPAPER_CMD = ['fim','-a','-q','smb2.png']
+WALLPAPER_CMD = ['fim','-a','-q','wallpaper.png']
 WALLPAPER = "Wallpaper"
 GAMING = "Gaming"
 
