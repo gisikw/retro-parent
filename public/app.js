@@ -66,6 +66,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   wrapButton('thirty', 30 * 60);
   wrapButton('hour', 60 * 60);
   wrapButton('two', 60 * 60 * 2);
-  document.getElementById('content').classList.add('active');
   await setLoading(false);
+  document.getElementById('content').classList.add('active');
 });

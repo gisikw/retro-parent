@@ -6,11 +6,34 @@
     <title>RetroParent</title>
     <script src="/app.js"></script>
     <style>
-      body: {
+      body {
         width: 100%;
+        font-family: sans-serif;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 44px;
+      }
+      button {
+        width: 60%;
+      }
+      #header {
+        position: fixed;
+        top: 0;
+        height: 44px;
+        left: 0;
+        right: 0;
+        background: #336;
+        z-index: 2;
+        color: #ccf;
+        text-shadow: 1px 1px 1px #222;
+        box-sizing: border-box;
+        padding-left: 10px;
+        line-height: 44px;
+        font-size: 24px;
       }
       #overlay {
-        background: rgba(0,0,0,0.4);
+        background: #336;
         position: fixed;
         top: 0;
         bottom: 0;
@@ -21,6 +44,7 @@
         justify-content: center;
         transition: opacity 0.2s ease-out;
         opacity: 1;
+        z-index: 1;
       }
       #overlay.disabled {
         opacity: 0; 
@@ -31,7 +55,8 @@
         text-align: center;
         font-size: 24px;
         opacity: 0;
-        transition: opacity 0.2s ease-in;
+        padding-top: 44px;
+        transition: opacity 0.1s ease-in;
       }
       #content.active {
         opacity: 1;
@@ -101,8 +126,10 @@
     </g>
 </svg>
     </section>
+    <section id="header">
+      RetroParent
+    </section>
     <section id="content">
-      <h1>RetroParent</h1>
       <h2 id="remaining">...</h2>
       <button id="zero">Expire immediately</button>
       <button id="thirty"></button>
